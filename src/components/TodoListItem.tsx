@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { isPropertySignature } from "typescript";
+import { TodoContext } from "../contexts/TodoContext";
+import { TodoContextType } from "../contexts/TodoContextType";
 import { Todo } from "../models/Todo";
 
 interface TodoListItemProps {
@@ -8,12 +10,14 @@ interface TodoListItemProps {
 
 const TodoListItem = (props: TodoListItemProps) => {
 
+    const { removeTodo, toggle } = useContext<TodoContextType>(TodoContext);
+
     const onRemove = (todo: Todo) => {
-        console.log();
+        removeTodo(todo);
     }
 
     const handleChange = (event: any) => {
-        console.log("chaged");
+        toggle(props.todo);
     }
 
     return (
