@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { isPropertySignature } from "typescript";
 import { TodoContext } from "../contexts/TodoContext";
 import { TodoContextType } from "../contexts/TodoContextType";
 import { Todo } from "../models/Todo";

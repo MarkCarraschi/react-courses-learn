@@ -1,13 +1,11 @@
 import React, { createContext, useEffect, useState } from "react";
 import { Todo } from "../models/Todo";
-import { get, save } from "../services/TodoService";
 import { TodoContextType } from "./TodoContextType";
+import { get, save } from "../services/TodoService";
 
 export const TodoContext = createContext<TodoContextType>({
 
-    todos: [
-
-    ],
+    todos: [],
     addTodo: () => { },
     removeTodo: () => { },
     toggle: () => { },
@@ -38,11 +36,7 @@ const TodoProvider = (props: any) => {
     }
 
     return (
-        <TodoContext.Provider value={
-            {
-                todos, addTodo, removeTodo, toggle
-            }
-        }>
+        <TodoContext.Provider value={{ todos, addTodo, removeTodo, toggle }}>
             {props.children}
         </TodoContext.Provider>
     );
